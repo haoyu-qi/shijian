@@ -387,7 +387,7 @@ export default function App() {
                   <h2>
                     {p.title} · {p.author}
                   </h2>
-                  <p>{p.lines.join("，")}。</p>
+                  <p className="poem-excerpt">{p.lines.join("，")}。</p>
                   <button
                     disabled={busy}
                     onClick={() =>
@@ -428,7 +428,7 @@ export default function App() {
                         <h2>
                           {p.title} · {p.author}
                         </h2>
-                        <p>{p.lines.join("，")}。</p>
+                        <p className="poem-excerpt">{p.lines.join("，")}。</p>
                       </>
                     )}
                     {f && (

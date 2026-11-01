@@ -7,16 +7,17 @@
 }
 
 :root {
-  --font-ui:
-    "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", system-ui,
-    sans-serif;
+  --font-ui: "KaiTi", "STKaiti", "Kaiti SC", serif;
   --font-calligraphy: "Zhi Mang Xing", "KaiTi", "STKaiti", serif;
   font-family: var(--font-ui);
+  font-weight: 600;
+  font-synthesis: weight;
 }
 
 .poem-lines > span {
   font-family: var(--font-calligraphy);
   font-weight: 400;
+  font-synthesis: none;
   font-size: 30px;
   letter-spacing: 1px;
   line-height: 1.35;
@@ -48,17 +49,15 @@
 .hour-seal,
 .poem-seal,
 .fortune-verse {
-  font-family: var(--font-calligraphy);
-  font-weight: 400;
+  font-family: var(--font-ui);
+  font-weight: 600;
 }
 .brand-name {
   font-size: 15px;
   letter-spacing: 2px;
 }
 .brand-name small {
-  font:
-    7px Georgia,
-    serif;
+  font: 7px var(--font-ui);
 }
 .solar-term strong {
   font-size: 29px;
@@ -66,13 +65,15 @@
 .hour-seal {
   font-size: 17px;
 }
-.full-poem {
+.poem-detail .full-poem {
   font-family: var(--font-calligraphy);
+  font-weight: 400;
+  font-synthesis: none;
   font-size: 22px !important;
   line-height: 1.85 !important;
 }
 .panel-heading h1 {
-  font-family: var(--font-calligraphy);
+  font-family: var(--font-ui);
   font-size: 26px;
 }
 .weather small,
@@ -101,7 +102,13 @@
   letter-spacing: 2.5px;
 }
 .weather strong {
-  font-family: Georgia, var(--font-ui);
+  font-family: var(--font-ui);
+}
+.record-list .poem-excerpt {
+  font-family: var(--font-calligraphy);
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: 18px;
 }
 
 .layout-moon .poem-lines > span {

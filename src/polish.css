@@ -90,11 +90,7 @@
 .fortune-entry {
   font-weight: 700;
 }
-.brand-name,
-.poem-lines > span,
-.fortune-verse,
-.hour-seal,
-.solar-term strong {
+.poem-lines > span {
   font-weight: 400;
 }
 .calendar {
@@ -134,7 +130,7 @@
   color: var(--ink);
   border-radius: 5px;
   padding: 9px 7px;
-  font: 12px var(--font-ui);
+  font: 600 12px var(--font-ui);
 }
 .city-search button {
   background: var(--accent);
@@ -166,7 +162,7 @@
 .city-results small {
   display: block;
   margin-top: 4px;
-  font: 11px/1.6 var(--font-ui);
+  font: 600 11px/1.6 var(--font-ui);
   color: var(--muted);
 }
 .city-error {
@@ -205,7 +201,7 @@
   border-radius: 3px;
 }
 .fortune-scroll .fortune-verse {
-  font: 400 28px/1.6 var(--font-calligraphy);
+  font: 600 28px/1.6 var(--font-ui);
   font-size: clamp(23px, 8.5vw, 28px);
   letter-spacing: 1px;
   margin: 0;
@@ -247,7 +243,7 @@
   margin-top: 20px;
 }
 .fortune-redesign .fortune-invite {
-  font: 400 23px var(--font-calligraphy);
+  font: 600 23px var(--font-ui);
   color: var(--ink);
   letter-spacing: 1px;
 }

@@ -1,15 +1,14 @@
 import { test, expect } from "@playwright/test";
-import { poems, fortunes } from "../src/content";
-test("内置行书覆盖当前诗词签文，并在三套布局中保持完整", async ({ page }) => {
+import { poems } from "../src/content";
+test("内置行书覆盖诗词正文，并在三套布局中保持完整", async ({ page }) => {
   await page.goto("/");
   await page.evaluate(() => document.fonts.load('30px "Zhi Mang Xing"'));
   const han = [
     ...new Set(
-      (
-        poems.map((p) => p.full).join("") +
-        fortunes.map((f) => f.verse).join("") +
-        "子丑寅卯辰巳午未申酉戌亥时立春雨水惊蛰春分清明谷雨立夏小满芒种夏至小暑大暑立秋处暑白露秋分寒露霜降立冬小雪大雪冬至小寒大寒"
-      ).match(/\p{Script=Han}/gu),
+      poems
+        .map((p) => p.full)
+        .join("")
+        .match(/\p{Script=Han}/gu),
     ),
   ].join("");
   await page.evaluate((text) => {

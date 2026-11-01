@@ -67,7 +67,7 @@
   line-height: 1.5;
 }
 .weather strong {
-  font-family: Georgia, "SimSun", serif;
+  font-family: var(--font-ui);
   font-size: 22px;
   letter-spacing: 0;
 }
@@ -155,7 +155,7 @@ footer {
   flex: 1;
 }
 .weather-source {
-  font: 10px/1.7 system-ui !important;
+  font: 600 10px/1.7 var(--font-ui) !important;
   color: var(--muted);
 }
 .weather-source .text-button {

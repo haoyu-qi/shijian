@@ -2,7 +2,7 @@
 
 [下载安装包](https://github.com/haoyu-qi/shijian/releases/latest) · [中华诗词来源](https://github.com/chinese-poetry/chinese-poetry)
 
-东方美学桌面日历，基于 Tauri 2 + React + TypeScript。当前是 0.4.1「风物版」，已支持三套布局、五套生图主题、在线天气与内置志莽行书，并提供 Windows x64 Release 安装包。
+东方美学桌面日历，基于 Tauri 2 + React + TypeScript。当前是 0.4.2「风物版」，已支持三套布局、五套生图主题、在线天气与内置志莽行书，并提供 Windows x64 Release 安装包。
 
 ## 启动
 
@@ -30,7 +30,7 @@ npm run build
 npm run tauri build -- --no-bundle
 ```
 
-`npm run tauri build -- --no-bundle` 只编译程序。运行 `npm run release` 会收集第三方许可并生成中文 NSIS 安装包，输出位于 `src-tauri/target/release/bundle/nsis`。本次交付副本及校验文件位于 `releases/0.4.1`。发行版采用 Release 优化编译，尚未使用代码签名证书签名。
+`npm run tauri build -- --no-bundle` 只编译程序。运行 `npm run release` 会收集第三方许可并生成中文 NSIS 安装包，输出位于 `src-tauri/target/release/bundle/nsis`。本次交付副本及校验文件位于 `releases/0.4.2`。发行版采用 Release 优化编译，尚未使用代码签名证书签名。
 
 ## 已实现与后续
 
@@ -53,7 +53,7 @@ npm run tauri build -- --no-bundle
 
 ## 内容与素材
 
-原诗为古典公版作品，存在通行版本差异，见 `src/content.ts`；白话读诗小记为项目编写。灵签是传统语句与自写生活寄语，不用于事实预测。界面背景使用内置 ImageGen 生成，提示词与素材路径见 `docs/imagegen-prompts.md`，原有 SVG 保留在源码中但主界面已替换为生图背景。诗词及部分标题内置 Google Fonts 官方「志莽行书」，许可证随资源保存于 `public/fonts/ZhiMangXing-OFL.txt`；辅助文字使用系统中文字体。字体来源与校验值见 `docs/fonts.md`。
+原诗为古典公版作品，存在通行版本差异，见 `src/content.ts`；白话读诗小记为项目编写。灵签是传统语句与自写生活寄语，不用于事实预测。界面背景使用内置 ImageGen 生成，提示词与素材路径见 `docs/imagegen-prompts.md`，原有 SVG 保留在源码中但主界面已替换为生图背景。诗词正文内置 Google Fonts 官方「志莽行书」，许可证随资源保存于 `public/fonts/ZhiMangXing-OFL.txt`；其余界面文字使用系统楷体（KaiTi 优先）。未安装楷体的系统会使用衬线字体回退。字体来源与校验值见 `docs/fonts.md`。
 
 历法使用 [lunar-typescript](https://github.com/6tail/lunar-typescript)；第三方依赖的许可证随依赖维护，正式发布前统一整理 NOTICE。完整任务见 [开发计划](./诗笺V1.1开发计划.md)。
 
@@ -65,6 +65,10 @@ npm run tauri build -- --no-bundle
 ## 0.4.1 扩充签库
 
 新增 54 条项目编写的生活签，共 60 条，涵盖从容、行动、相处、求知、自省和调养。原有六签、历史和每日已抽结果保持不变。新增短句不标作古籍引文或庙签，详见 [签库说明](./docs/fortune-library.md)。
+
+## 0.4.2 字体分工
+
+仅诗词正文（主界面、全文、收藏与历史诗句）保留行书，其余文字统一使用楷体，保留辅助信息较粗字重。移除时钟、日期的 Georgia 字体及辅助文字的黑体规则，灵签全部采用楷体。修正窄窗口中七字签句的折行，详见 [字体说明](./docs/fonts.md)。
 
 
 ## 中华诗词导入

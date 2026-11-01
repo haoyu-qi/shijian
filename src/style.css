@@ -1,6 +1,6 @@
 @import url("./themes.css");
 :root {
-  font-family: "Songti SC", "Noto Serif CJK SC", "SimSun", serif;
+  font-family: var(--font-ui);
   font-synthesis: none;
   color: #302d29;
   background: transparent;
@@ -110,7 +110,7 @@ button:hover {
   opacity: 1;
 }
 .quick-actions button {
-  font-family: system-ui;
+  font-family: var(--font-ui);
   font-size: 16px;
   padding: 2px 5px;
   min-height: 26px;
@@ -130,12 +130,12 @@ button:hover {
   box-shadow: 0 2px 4px var(--shade);
 }
 .time-widget time {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-ui);
   font-variant-numeric: tabular-nums;
   font-size: 58px;
   letter-spacing: -2px;
   line-height: 1.1;
-  font-weight: 500;
+  font-weight: 600;
 }
 .hour-seal {
   background: var(--accent);
@@ -208,11 +208,11 @@ button:hover {
   display: block;
   font-size: 13px;
   letter-spacing: 2px;
-  font-weight: 400;
+  font-weight: 600;
 }
 .weather small {
   display: block;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-ui);
   color: var(--muted);
   font-size: 10px;
   margin-top: 6px;
@@ -332,10 +332,10 @@ button:hover {
   height: 84px;
 }
 .date-row > strong {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-ui);
   font-size: 73px;
   line-height: 1;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -4px;
 }
 .date-row > div {
@@ -344,7 +344,7 @@ button:hover {
   gap: 7px;
 }
 .date-row time {
-  font-family: Georgia, serif;
+  font-family: var(--font-ui);
   font-size: 13px;
   letter-spacing: 2px;
 }
@@ -547,7 +547,7 @@ footer {
   color: var(--accent);
 }
 .fortune-verse {
-  font-size: 24px !important;
+  font-size: 24px;
   letter-spacing: 4px;
   margin: 25px 0;
 }
@@ -612,7 +612,7 @@ footer {
   margin: 10px 0 5px;
 }
 .record-list time {
-  font: 10px system-ui;
+  font: 600 10px var(--font-ui);
   color: var(--muted);
 }
 .record-list button {
@@ -647,7 +647,7 @@ footer {
   background: var(--ink);
   color: var(--paper);
   border-radius: 6px;
-  font: 11px/1.7 system-ui;
+  font: 600 11px/1.7 var(--font-ui);
   box-shadow: 0 3px 20px #0003;
 }
 .error button {
