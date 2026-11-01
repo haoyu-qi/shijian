@@ -3,6 +3,7 @@ import { layouts, themes } from "../services/themes";
 import { CityPicker } from "./CityPicker";
 import type { State } from "../services/storage";
 import { poems, fortunes } from "../content";
+import { readingCount } from "../services/readings";
 export function SettingsPanel({
   state,
   busy,
@@ -135,7 +136,8 @@ export function SettingsPanel({
         离线诗词库 {poems.length.toLocaleString("zh-CN")} 首 · 近期去重
       </p>
       <p className="muted small">离线灵签库 {fortunes.length} 条 · 每日一签</p>
-      <p className="version">诗笺 · 风物版 0.4.3</p>
+      <p className="muted small">本地解读 {readingCount} 首 · 可离线阅读</p>
+      <p className="version">诗笺 · 风物版 0.4.4</p>
     </div>
   );
 }

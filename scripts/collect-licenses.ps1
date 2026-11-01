@@ -31,6 +31,7 @@ foreach ($packageInfo in ($cargoMetadata.packages | Sort-Object name,version)) {
 }
 $sections.Add("`n===== Zhi Mang Xing =====`n" + (Get-Content -LiteralPath (Join-Path $projectRoot 'public/fonts/ZhiMangXing-OFL.txt') -Raw -Encoding UTF8))
 $sections.Add("`n===== chinese-poetry / chinese-poetry =====`n" + (Get-Content -LiteralPath (Join-Path $projectRoot 'public/licenses/chinese-poetry-MIT.txt') -Raw -Encoding UTF8))
+$sections.Add("`n===== open-chinese / poetry-collection =====`n" + (Get-Content -LiteralPath (Join-Path $projectRoot 'public/licenses/poetry-collection-MIT.txt') -Raw -Encoding UTF8))
 $outputPath = Join-Path $outputDirectory 'THIRD-PARTY-LICENSES.txt'
 [System.IO.File]::WriteAllText($outputPath, ($sections -join "`n"), [System.Text.UTF8Encoding]::new($false))
 Write-Output "Notices written: $outputPath"

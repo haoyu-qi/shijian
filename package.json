@@ -1,6 +1,6 @@
 {
   "name": "shijian",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "private": true,
   "type": "module",
   "dependencies": {
@@ -31,6 +31,7 @@
     "poems:fetch": "node scripts/fetch-poetry.mjs",
     "poems:import": "node scripts/import-poems.mjs",
     "release": "powershell -NoProfile -File scripts/collect-licenses.ps1 && tauri build --bundles nsis",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "readings:import": "node scripts/import-readings.mjs"
   }
 }

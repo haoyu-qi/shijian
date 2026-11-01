@@ -2,7 +2,7 @@
 
 [下载安装包](https://github.com/haoyu-qi/shijian/releases/latest) · [中华诗词来源](https://github.com/chinese-poetry/chinese-poetry)
 
-东方美学桌面日历，基于 Tauri 2 + React + TypeScript。当前是 0.4.3「风物版」，已支持三套布局、五套生图主题、在线天气与内置志莽行书，并提供 Windows x64 Release 安装包。
+东方美学桌面日历，基于 Tauri 2 + React + TypeScript。当前是 0.4.4「风物版」，已支持三套布局、五套生图主题、在线天气与内置志莽行书，并提供 Windows x64 Release 安装包。
 
 ## 启动
 
@@ -30,7 +30,7 @@ npm run build
 npm run tauri build -- --no-bundle
 ```
 
-`npm run tauri build -- --no-bundle` 只编译程序。运行 `npm run release` 会收集第三方许可并生成中文 NSIS 安装包，输出位于 `src-tauri/target/release/bundle/nsis`。本次交付副本及校验文件位于 `releases/0.4.3`。发行版采用 Release 优化编译，尚未使用代码签名证书签名。
+`npm run tauri build -- --no-bundle` 只编译程序。运行 `npm run release` 会收集第三方许可并生成中文 NSIS 安装包，输出位于 `src-tauri/target/release/bundle/nsis`。本次交付副本及校验文件位于 `releases/0.4.4`。发行版采用 Release 优化编译，尚未使用代码签名证书签名。
 
 ## 已实现与后续
 
@@ -73,6 +73,12 @@ npm run tauri build -- --no-bundle
 ## 0.4.3 单列署名
 
 诗名、朝代和作者合为同一条竖列，继续使用楷体；横版调整字号。超长诗名省略并保留作者，悬停或打开诗词全文可查看完整信息。
+
+## 0.4.4 全文与赏析入口
+
+主界面增加「阅读全文」，诗句、诗名、收藏与历史均可打开对应作品的本地完整原文；每次打开阅读页回到顶部，长诗滚动时保留标题与关闭按钮。阅读页以「原文 / 解读」切换，全程离线，不跳转浏览器。
+
+内置 436 首本地解读，其中 19 首提供项目整理的释义、词语注释与赏析，417 首为标明 AI 整理的参考赏析。其余 1,572 首明确提示详解待补充，仍提供完整原文。来源、固定版本、匹配规则及许可见 [本地解读库](./docs/poem-readings.md)。
 
 
 ## 中华诗词导入

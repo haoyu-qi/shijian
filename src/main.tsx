@@ -9,6 +9,7 @@ import "./fonts.css";
 import "./polish.css";
 import "./fortune-art.css";
 import "./fortune-theme.css";
+import "./reading.css";
 const root = createRoot(document.getElementById("root")!);
 initializeStorage()
   .then(() =>

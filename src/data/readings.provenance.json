@@ -1,0 +1,34 @@
+{
+  "repository": "https://github.com/open-chinese/poetry-collection",
+  "revision": "58690b76f47f7dff0131b8374ff0d133f0fab155",
+  "license": "MIT",
+  "matching": "OpenCC + NFC + punctuation/space removal; one exact author/full-text candidate within a source file; first matching file wins",
+  "sourceRecords": 19058,
+  "matched": 430,
+  "files": [
+    {
+      "path": "appreciation/AI鉴赏与评分/80-85分段.json",
+      "blob": "c1f087a4db235b8d12354084bb91251269fc3a78",
+      "sha256": "30d1eed5dcc1169ebbc0ebc9741b08ce835e4ffec6de5368b6d02ad206db314d",
+      "bytes": 16281415
+    },
+    {
+      "path": "appreciation/AI鉴赏与评分/85-90分段.json",
+      "blob": "c0fd04bbdc12df788dadd675755debcb2205add7",
+      "sha256": "32ebb74c93aea3ab4a994cf7d02f42e78ba21502c080de6c31c9142ae86c77e2",
+      "bytes": 10403694
+    },
+    {
+      "path": "appreciation/AI鉴赏与评分/90-95分段.json",
+      "blob": "fce323c12d113fe72a23aa3f5be6894d0ad28c7c",
+      "sha256": "a20569bfd7addd8c868ca82278ee8127bb76f982ea8c29c501ba00e183eb0f0f",
+      "bytes": 2328830
+    },
+    {
+      "path": "appreciation/AI鉴赏与评分/95-100分段.json",
+      "blob": "f9d6e663361d159c222a702e3ee3879c6b1a87b0",
+      "sha256": "fe0f90955ea8a59c87c8779e1df24c3f0f8dc809b5d61090b0e83f01a3474adc",
+      "bytes": 139630
+    }
+  ]
+}

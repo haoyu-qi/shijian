@@ -15,6 +15,7 @@ import {
 import { effectiveTheme, randomTheme } from "./services/themes";
 import { applyLayout } from "./services/desktop";
 import { TimeWidget } from "./components/TimeWidget";
+import { PoemDetail } from "./components/PoemDetail";
 import { FortuneCard } from "./components/FortuneCard";
 import { SettingsPanel } from "./components/SettingsPanel";
 import { useWeather, WeatherWidget } from "./components/WeatherWidget";
@@ -44,15 +45,20 @@ export default function App() {
   )!;
   const fortune = fortunes.find((f) => f.id === state.draws[day]);
   const [panel, setPanel] = useState<Panel>(null),
+    [readingId, setReadingId] = useState<string | null>(null),
     [busy, setBusy] = useState(false),
-    [error, setError] = useState(""),
-    [notice, setNotice] = useState("");
+    [error, setError] = useState("");
   const dialog = useRef<HTMLDialogElement>(null);
+  const readingPoem = poems.find((p) => p.id === readingId) ?? poem;
+  function openPoem(id = poem.id) {
+    setReadingId(id);
+    setPanel("poem");
+  }
   const title =
     panel === "settings"
       ? "笺上设置"
       : panel === "poem"
-        ? poem.title
+        ? readingPoem.title
         : panel === "fortune"
           ? "今日灵签"
           : panel === "favorites"
@@ -99,15 +105,13 @@ export default function App() {
     }).catch(() => setError("今日记录暂未保存，请稍后重试。"));
   }, [day, state.themeMode]);
   useEffect(() => {
-    if (panel && !dialog.current?.open) dialog.current?.showModal();
-    if (!panel && dialog.current?.open) dialog.current.close();
-  }, [panel]);
-  useEffect(() => {
-    if (notice) {
-      const timer = setTimeout(() => setNotice(""), 2400);
-      return () => clearTimeout(timer);
-    }
-  }, [notice]);
+    const element = dialog.current;
+    if (!element) return;
+    if (panel) {
+      if (!element.open) element.showModal();
+      element.scrollTop = 0;
+    } else if (element.open) element.close();
+  }, [panel, readingPoem.id]);
   useEffect(() => {
     if (isTauri())
       void applyLayout(state.layout).catch(() =>
@@ -120,13 +124,13 @@ export default function App() {
         .setAlwaysOnTop(state.pinned)
         .catch(() => setError("置顶设置未能应用，请重试。"));
   }, [state.pinned]);
-  const favorite = () =>
+  const favorite = (id = poem.id) =>
     action(() =>
       updateState((s) => ({
         ...s,
-        favorites: s.favorites.includes(poem.id)
-          ? s.favorites.filter((id) => id !== poem.id)
-          : [...s.favorites, poem.id],
+        favorites: s.favorites.includes(id)
+          ? s.favorites.filter((saved) => saved !== id)
+          : [...s.favorites, id],
       })),
     );
   return (
@@ -220,7 +224,7 @@ export default function App() {
         <button
           className="poetry"
           aria-label={`阅读《${poem.title}》全文`}
-          onClick={() => setPanel("poem")}
+          onClick={() => openPoem()}
         >
           <span className="poem-lines">
             {poem.lines.map((line) => (
@@ -241,6 +245,7 @@ export default function App() {
           诗意
         </span>
         <div className="poem-actions">
+          <button onClick={() => openPoem()}>阅读全文</button>
           <button
             disabled={busy}
             onClick={() =>
@@ -312,19 +317,15 @@ export default function App() {
           </button>
         </div>
       )}
-      {notice && (
-        <div className="toast" role="status">
-          {notice}
-        </div>
-      )}
       <dialog
         ref={dialog}
-        className={`panel theme-${theme} ${state.layout === "moon" && panel === "fortune" ? "side-scroll" : ""}`}
+        className={`panel theme-${theme} ${panel === "poem" ? "poem-panel" : ""} ${state.layout === "moon" && panel === "fortune" ? "side-scroll" : ""}`}
+        aria-labelledby="panel-title"
         onCancel={() => setPanel(null)}
         onClose={() => setPanel(null)}
       >
         <header className="panel-heading">
-          <h1>{title}</h1>
+          <h1 id="panel-title">{title}</h1>
           <button aria-label="关闭面板" onClick={() => setPanel(null)}>
             ×
           </button>
@@ -340,34 +341,14 @@ export default function App() {
           />
         )}
         {panel === "poem" && (
-          <article className="poem-detail">
-            <p className="muted">
-              〔{poem.dynasty}〕{poem.author}
-            </p>
-            <p className="full-poem">{poem.full}</p>
-            <h2>{poem.meaning ? "读诗小记" : "原文来源"}</h2>
-            <p>
-              {poem.meaning ||
-                "中华诗词（chinese-poetry）开源诗库 · 简体整理。"}
-            </p>
-            <div className="button-row">
-              <button disabled={busy} onClick={() => void favorite()}>
-                {state.favorites.includes(poem.id) ? "取消收藏" : "收藏此诗"}
-              </button>
-              <button
-                onClick={() =>
-                  void action(async () => {
-                    await navigator.clipboard.writeText(
-                      `${poem.full}\n——〔${poem.dynasty}〕${poem.author}《${poem.title}》\n${day} · 诗笺`,
-                    );
-                    setNotice("诗词已复制");
-                  })
-                }
-              >
-                复制诗词
-              </button>
-            </div>
-          </article>
+          <PoemDetail
+            key={readingPoem.id}
+            poem={readingPoem}
+            day={day}
+            favorite={state.favorites.includes(readingPoem.id)}
+            busy={busy}
+            onFavorite={() => void favorite(readingPoem.id)}
+          />
         )}
         {panel === "fortune" && (
           <FortuneCard
@@ -391,9 +372,27 @@ export default function App() {
               return (
                 <article key={id}>
                   <h2>
-                    {p.title} · {p.author}
+                    <button
+                      className="record-title"
+                      onClick={() => openPoem(p.id)}
+                    >
+                      {p.title} · {p.author}
+                    </button>
                   </h2>
-                  <p className="poem-excerpt">{p.lines.join("，")}。</p>
+                  <p className="poem-excerpt">
+                    <button
+                      className="record-excerpt"
+                      onClick={() => openPoem(p.id)}
+                    >
+                      {p.lines.join("，")}。
+                    </button>
+                  </p>
+                  <button
+                    className="record-read"
+                    onClick={() => openPoem(p.id)}
+                  >
+                    阅读全文 ›
+                  </button>
                   <button
                     disabled={busy}
                     onClick={() =>
@@ -432,9 +431,27 @@ export default function App() {
                     {p && (
                       <>
                         <h2>
-                          {p.title} · {p.author}
+                          <button
+                            className="record-title"
+                            onClick={() => openPoem(p.id)}
+                          >
+                            {p.title} · {p.author}
+                          </button>
                         </h2>
-                        <p className="poem-excerpt">{p.lines.join("，")}。</p>
+                        <p className="poem-excerpt">
+                          <button
+                            className="record-excerpt"
+                            onClick={() => openPoem(p.id)}
+                          >
+                            {p.lines.join("，")}。
+                          </button>
+                        </p>
+                        <button
+                          className="record-read"
+                          onClick={() => openPoem(p.id)}
+                        >
+                          阅读全文 ›
+                        </button>
                       </>
                     )}
                     {f && (

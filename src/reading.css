@@ -1,0 +1,111 @@
+.poem-actions {
+  gap: 12px;
+}
+.poem-actions button:first-child {
+  color: var(--accent);
+}
+.panel-heading h1 {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.panel-heading button {
+  flex-shrink: 0;
+}
+.poem-detail .full-poem {
+  margin: 16px 0 24px;
+}
+.poem-sentence {
+  display: inline-block;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.poem-panel .panel-heading {
+  position: sticky;
+  top: -20px;
+  background: var(--paper);
+  z-index: 2;
+  gap: 10px;
+}
+.poem-panel .panel-heading h1 {
+  font-size: 22px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.reader-availability,
+.reading-empty {
+  border: 1px solid var(--frame);
+  background: color-mix(in srgb, var(--paper) 90%, var(--accent));
+  padding: 12px;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+.reading-empty h2 {
+  margin-top: 0;
+}
+.reader-availability {
+  font-size: 12px;
+}
+.reader-tabs {
+  display: flex;
+  border: 1px solid var(--frame);
+  border-radius: 5px;
+  margin: 16px 0;
+  padding: 3px;
+  gap: 4px;
+}
+.reader-tabs button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+.reader-tabs [aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--seal-ink);
+}
+.reading-badge,
+.version-note,
+.reader-feedback {
+  color: var(--accent);
+}
+.version-note {
+  border-left: 2px solid var(--frame);
+  padding-left: 10px;
+  font-size: 12px !important;
+}
+.poem-reading dl {
+  font-size: 13px;
+  line-height: 1.9;
+}
+.poem-reading dl > div {
+  margin: 12px 0;
+}
+.poem-reading dt {
+  color: var(--accent);
+  font-weight: 700;
+}
+.poem-reading dd {
+  margin: 2px 0 0;
+}
+.reader-error {
+  color: var(--accent);
+  border-left: 2px solid var(--accent);
+  padding-left: 10px;
+}
+.record-list .record-title,
+.record-list .record-excerpt {
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  padding: 0;
+}
+.record-title:hover,
+.record-excerpt:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.record-read {
+  display: block;
+  margin: 8px 0;
+}
