@@ -1,0 +1,55 @@
+.theme-paper {
+  --paper: #f4ecd8;
+  --ink: #302d29;
+  --muted: #756c5a;
+  --accent: #a64b3c;
+  --frame: #bba581;
+  --shade: #ad8b4c1c;
+  --grain: #765b3010;
+  --glaze: #fff8e52e;
+  --seal-ink: #fff3dc;
+}
+.theme-blossom {
+  --paper: #f6e7e4;
+  --ink: #493331;
+  --muted: #80615f;
+  --accent: #9e435c;
+  --frame: #c7a3a3;
+  --shade: #bc72851c;
+  --grain: #89435509;
+  --glaze: #fff8f52e;
+  --seal-ink: #fff1ed;
+}
+.theme-rain {
+  --paper: #dfe8df;
+  --ink: #263b35;
+  --muted: #556d60;
+  --accent: #8e493b;
+  --frame: #8eaa98;
+  --shade: #436c5a1c;
+  --grain: #305e440c;
+  --glaze: #f0fff52e;
+  --seal-ink: #fff3dc;
+}
+.theme-moon {
+  --paper: #1c3042;
+  --ink: #eee6d3;
+  --muted: #c6bc9f;
+  --accent: #d4b77d;
+  --frame: #7d8279;
+  --shade: #06121f50;
+  --grain: #d5c59b08;
+  --glaze: #0e253a50;
+  --seal-ink: #1c3042;
+}
+.theme-snow {
+  --paper: #efeee9;
+  --ink: #343c42;
+  --muted: #69747b;
+  --accent: #a04748;
+  --frame: #a4afb3;
+  --shade: #697e8c17;
+  --grain: #455b7209;
+  --glaze: #ffffff50;
+  --seal-ink: #fff9ef;
+}

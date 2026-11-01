@@ -1,0 +1,101 @@
+/* Fortune cards share the active skin's artwork and design tokens. */
+.fortune-card.fortune-redesign {
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--frame);
+  border-radius: 8px;
+  padding: 26px 14px;
+  overflow: hidden;
+}
+.fortune-scene {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-size: 100% 100%;
+  background-position: center;
+  opacity: 0.85;
+}
+.fortune-card.fortune-redesign:before {
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--paper) 40%, transparent),
+    color-mix(in srgb, var(--paper) 88%, transparent) 24%,
+    color-mix(in srgb, var(--paper) 92%, transparent) 76%,
+    color-mix(in srgb, var(--paper) 50%, transparent)
+  );
+}
+.fortune-card.fortune-redesign:after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--frame);
+  opacity: 0.45;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: -1;
+}
+.fortune-redesign .fortune-overline,
+.fortune-redesign .fortune-date,
+.fortune-redesign .entertainment,
+.fortune-redesign .fortune-once,
+.fortune-redesign .fortune-intro {
+  color: var(--muted);
+}
+.fortune-redesign .fortune-number {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+}
+.fortune-redesign .fortune-scroll {
+  border-top: 1px solid var(--frame);
+  border-bottom: 1px solid var(--frame);
+  margin: 20px -5px 18px;
+  padding: 10px 0;
+  background: transparent;
+}
+.fortune-redesign h2,
+.fortune-redesign .text-button {
+  color: var(--accent);
+}
+.fortune-redesign .fortune-invite {
+  color: var(--ink);
+}
+.fortune-redesign .fortune-interpretation {
+  border-color: var(--frame);
+}
+.fortune-redesign .fortune-wish {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--accent) 9%, var(--paper));
+  border: 1px solid color-mix(in srgb, var(--frame) 50%, transparent);
+}
+.fortune-redesign .fortune-draw {
+  color: var(--seal-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.fortune-symbol {
+  color: var(--accent);
+  height: 155px;
+  width: 124px;
+  margin: 8px auto 15px;
+  display: grid;
+  place-items: center;
+}
+.fortune-symbol svg {
+  height: 145px;
+  width: 116px;
+  filter: none;
+}
+.fortune-symbol.drawing svg {
+  animation: fortune-shake 0.35s ease-in-out alternate infinite;
+}
+.reduced-motion .fortune-symbol.drawing svg {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fortune-symbol.drawing svg {
+    animation: none;
+  }
+}

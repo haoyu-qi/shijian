@@ -1,0 +1,154 @@
+@font-face {
+  font-family: "Zhi Mang Xing";
+  src: url("/fonts/ZhiMangXing-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-ui:
+    "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", system-ui,
+    sans-serif;
+  --font-calligraphy: "Zhi Mang Xing", "KaiTi", "STKaiti", serif;
+  font-family: var(--font-ui);
+}
+
+.poem-lines > span {
+  font-family: var(--font-calligraphy);
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 1px;
+  line-height: 1.35;
+  text-shadow: none;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+.poetry-section {
+  padding: 16px 0 38px;
+}
+.poetry {
+  padding: 0;
+  min-height: 0;
+  gap: 14px;
+}
+.poem-lines {
+  gap: 13px;
+}
+.poem-attribution {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 1.65;
+  color: var(--ink);
+  opacity: 0.76;
+}
+.brand-name,
+.solar-term strong,
+.hour-seal,
+.poem-seal,
+.fortune-verse {
+  font-family: var(--font-calligraphy);
+  font-weight: 400;
+}
+.brand-name {
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+.brand-name small {
+  font:
+    7px Georgia,
+    serif;
+}
+.solar-term strong {
+  font-size: 29px;
+}
+.hour-seal {
+  font-size: 17px;
+}
+.full-poem {
+  font-family: var(--font-calligraphy);
+  font-size: 22px !important;
+  line-height: 1.85 !important;
+}
+.panel-heading h1 {
+  font-family: var(--font-calligraphy);
+  font-size: 26px;
+}
+.weather small,
+.date-row small,
+.solar-term span,
+.poem-actions {
+  font-size: 10px;
+}
+.date-row span {
+  letter-spacing: 2px;
+}
+.date-row small {
+  font-size: 10.5px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+.poem-actions {
+  font-size: 11px;
+}
+.poem-actions button {
+  min-height: 28px;
+  padding: 2px 5px;
+}
+.poetry-caption {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+}
+.weather strong {
+  font-family: Georgia, var(--font-ui);
+}
+
+.layout-moon .poem-lines > span {
+  font-size: 29px;
+  letter-spacing: 1px;
+}
+.layout-moon .hour-seal {
+  font-size: 17px;
+}
+@media (min-width: 480px) {
+  .calendar.layout-horizontal {
+    grid-template-rows: 22px 72px minmax(164px, 1fr) 64px;
+  }
+  .layout-horizontal > .poetry-section {
+    padding: 5px 0 29px;
+  }
+  .layout-horizontal .poetry {
+    padding: 0;
+  }
+  .layout-horizontal .poem-lines > span {
+    font-size: 23px;
+    letter-spacing: 0.5px;
+  }
+  .layout-horizontal .poem-attribution {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  .layout-horizontal .date-row {
+    height: 60px;
+    gap: 15px;
+  }
+  .layout-horizontal .solar-term strong {
+    font-size: 29px;
+  }
+}
+@media (max-height: 690px) {
+  .layout-moon > .poetry-section {
+    padding: 8px 0 44px;
+  }
+  .layout-moon .poem-lines > span {
+    font-size: 26px;
+    letter-spacing: 1px;
+  }
+}
+@media (max-height: 660px) and (max-width: 479px) {
+  .poem-lines > span {
+    font-size: 27px;
+    letter-spacing: 1px;
+  }
+}

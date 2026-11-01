@@ -1,0 +1,22 @@
+[package]
+name = "shijian"
+version = "0.4.0"
+description = "诗笺 · 东方美学桌面日历"
+edition = "2021"
+
+[lib]
+name = "shijian_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-store = "2"
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+opt-level = "s"
+strip = true

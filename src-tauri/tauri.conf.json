@@ -1,0 +1,64 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "诗笺",
+  "version": "0.4.0",
+  "identifier": "cn.shijian.calendar",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "诗笺",
+        "width": 280,
+        "height": 700,
+        "minWidth": 260,
+        "minHeight": 620,
+        "decorations": false,
+        "transparent": true,
+        "resizable": false,
+        "shadow": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src ipc: http://ipc.localhost https://api.open-meteo.com https://geocoding-api.open-meteo.com; font-src 'self'; object-src 'none'; base-uri 'self'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "publisher": "诗笺",
+    "shortDescription": "知天时 · 赏诗意 · 问今日",
+    "longDescription": "东方美学桌面日历，提供行书诗词、农历节气、天气和每日灵签。",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.ico"
+    ],
+    "resources": {
+      "../public/fonts/ZhiMangXing-OFL.txt": "licenses/ZhiMangXing-OFL.txt",
+      "../public/licenses/chinese-poetry-MIT.txt": "licenses/chinese-poetry-MIT.txt",
+      "../release-support/THIRD-PARTY-LICENSES.txt": "licenses/THIRD-PARTY-LICENSES.txt",
+      "../release-support/使用说明.md": "使用说明.md"
+    },
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper",
+        "silent": true
+      },
+      "minimumWebview2Version": "120.0.2210.0",
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["SimpChinese"],
+        "displayLanguageSelector": false,
+        "compression": "lzma",
+        "startMenuFolder": "诗笺"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.calendar {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.10' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (max-height: 660px) {
+  .calendar {
+    grid-template-rows: 22px 84px 26px 66px minmax(210px, 1fr) 96px 34px;
+  }
+  .poetry-section {
+    padding-top: 12px;
+    padding-bottom: 20px;
+  }
+  .poem-lines > span {
+    font-size: 23px;
+    letter-spacing: 5px;
+  }
+  .poetry-caption {
+    top: 8px;
+  }
+  .time-widget time {
+    font-size: 54px;
+  }
+  .date-row > strong {
+    font-size: 65px;
+  }
+}

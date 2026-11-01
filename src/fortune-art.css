@@ -1,0 +1,149 @@
+.calendar,
+.brand {
+  cursor: grab;
+}
+.calendar:active,
+.brand:active {
+  cursor: grabbing;
+}
+.quick-actions {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease-out;
+}
+.calendar:hover .quick-actions,
+.quick-actions:focus-within {
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (hover: none) {
+  .quick-actions {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .quick-actions {
+    transition: none;
+  }
+}
+.reduced-motion .quick-actions {
+  transition: none;
+}
+.fortune-card.fortune-redesign {
+  position: relative;
+  isolation: isolate;
+  padding: 30px 14px 26px;
+  color: #302d29;
+  border-radius: 4px;
+}
+.fortune-card.fortune-redesign:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #f4ecd8 url("/fortune/fortune-scroll-v1.png") center/100% 100%
+    no-repeat;
+  border-radius: 4px;
+  pointer-events: none;
+}
+.fortune-redesign .fortune-overline,
+.fortune-redesign .fortune-date,
+.fortune-redesign .entertainment,
+.fortune-redesign .fortune-once,
+.fortune-redesign .fortune-intro {
+  color: #655845;
+}
+.fortune-redesign .fortune-number {
+  border-color: #a64b3c;
+  color: #9b392d;
+  background: #f9f1e4;
+  letter-spacing: 2px;
+  font-size: 11px;
+  padding: 5px 9px;
+}
+.fortune-redesign .fortune-scroll {
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  margin: 14px -7px;
+}
+.fortune-redesign .scroll-cap {
+  display: none;
+}
+.fortune-redesign .fortune-scroll .fortune-verse {
+  font-size: clamp(21px, 7.5vw, 26px);
+  letter-spacing: 0;
+  padding: 10px 0;
+}
+.fortune-redesign .fortune-interpretation {
+  border-color: #bba581;
+  padding: 0 6px;
+  margin: 12px 0;
+}
+.fortune-redesign .fortune-interpretation p,
+.fortune-redesign .fortune-wish p {
+  font-size: 12px;
+  line-height: 1.85;
+}
+.fortune-redesign .fortune-wish {
+  background: #bba58120;
+  padding: 9px;
+  margin: 12px 0;
+}
+.fortune-redesign h2 {
+  color: #9b392d;
+  font-size: 11px;
+}
+.fortune-redesign .fortune-invite {
+  color: #302d29;
+  font-size: 22px;
+}
+.fortune-invite span {
+  display: block;
+  line-height: 1.5;
+}
+.fortune-redesign .fortune-interpretation p {
+  text-wrap: pretty;
+}
+.fortune-redesign .fortune-draw {
+  background: #a64b3c;
+  color: #fff3dc;
+  border-color: #a64b3c;
+  font-size: 12px;
+  padding: 11px 6px;
+}
+.fortune-redesign .text-button {
+  color: #9b392d;
+  font-weight: 600;
+}
+.fortune-redesign .fortune-date {
+  font-size: 9px !important;
+  line-height: 1.7;
+  margin: 16px -4px 0;
+}
+.fortune-redesign .entertainment {
+  font-size: 9px !important;
+  margin: 18px -4px 0;
+}
+.fortune-vessel {
+  display: block;
+  width: 145px;
+  height: 155px;
+  object-fit: contain;
+  margin: 0 auto 16px;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 6px 7px #5a382420);
+}
+.fortune-vessel.drawing {
+  animation: fortune-shake 0.35s ease-in-out alternate infinite;
+}
+.reduced-motion .fortune-vessel.drawing {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fortune-vessel.drawing {
+    animation: none;
+  }
+}
