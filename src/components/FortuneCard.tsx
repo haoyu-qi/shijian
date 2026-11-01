@@ -1,4 +1,4 @@
-import type { fortunes } from "../content";
+import { fortunes, type Fortune } from "../content";
 import type { Theme } from "../services/storage";
 export function FortuneCard({
   fortune,
@@ -8,7 +8,7 @@ export function FortuneCard({
   onHistory,
   theme,
 }: {
-  fortune: (typeof fortunes)[number] | undefined;
+  fortune: Fortune | undefined;
   day: string;
   busy: boolean;
   onDraw: () => void;
@@ -80,7 +80,9 @@ export function FortuneCard({
             <span>放慢片刻</span>
             <span>问候今日</span>
           </h2>
-          <p className="fortune-intro">为今天留一句温柔的寄语。</p>
+          <p className="fortune-intro">
+            {fortunes.length} 条生活签，为今天留一句寄语。
+          </p>
           <button
             className="primary fortune-draw"
             disabled={busy}

@@ -2,7 +2,7 @@ import { isTauri } from "@tauri-apps/api/core";
 import { layouts, themes } from "../services/themes";
 import { CityPicker } from "./CityPicker";
 import type { State } from "../services/storage";
-import { poems } from "../content";
+import { poems, fortunes } from "../content";
 export function SettingsPanel({
   state,
   busy,
@@ -134,7 +134,8 @@ export function SettingsPanel({
       <p className="muted small">
         离线诗词库 {poems.length.toLocaleString("zh-CN")} 首 · 近期去重
       </p>
-      <p className="version">诗笺 · 风物版 0.4.0</p>
+      <p className="muted small">离线灵签库 {fortunes.length} 条 · 每日一签</p>
+      <p className="version">诗笺 · 风物版 0.4.1</p>
     </div>
   );
 }

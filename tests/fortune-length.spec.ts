@@ -1,8 +1,10 @@
 import { test, expect } from "@playwright/test";
-test("六条签文在窄窗口中均按句显示，不产生单字落行", async ({ page }) => {
+import { fortunes } from "../src/content";
+test("全部六十条签文在窄窗口中均按句显示，不产生单字落行", async ({ page }) => {
+  test.setTimeout(120_000);
   await page.setViewportSize({ width: 260, height: 620 });
   await page.goto("/");
-  for (let id = 1; id <= 6; id++) {
+  for (const { id, verse, meaning, note } of fortunes) {
     await page.evaluate((id) => {
       const s = JSON.parse(localStorage.getItem("shijian-v1")!);
       const d = Object.keys(s.dailyPoems).sort().at(-1)!;
@@ -12,6 +14,14 @@ test("六条签文在窄窗口中均按句显示，不产生单字落行", async
     await page.reload();
     await page.getByRole("button", { name: /重温今日签/ }).click();
     await page.evaluate(() => document.fonts.ready);
+    await expect(page.locator(".fortune-number")).toHaveText(
+      `第 ${String(id).padStart(2, "0")} 签`,
+    );
+    await expect(page.locator(".fortune-verse")).toHaveText(
+      verse.replace(/[，,]/g, ""),
+    );
+    await expect(page.locator(".fortune-interpretation p")).toHaveText(meaning);
+    await expect(page.locator(".fortune-wish p")).toHaveText(note);
     for (const line of await page.locator(".fortune-verse p").all()) {
       const metric = await line.evaluate((el) => ({
         height: el.getBoundingClientRect().height,
