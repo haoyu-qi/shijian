@@ -2,7 +2,7 @@
 
 [下载安装包](https://github.com/haoyu-qi/shijian/releases/latest) · [中华诗词来源](https://github.com/chinese-poetry/chinese-poetry)
 
-东方美学桌面日历，基于 Tauri 2 + React + TypeScript。当前是 0.4.2「风物版」，已支持三套布局、五套生图主题、在线天气与内置志莽行书，并提供 Windows x64 Release 安装包。
+东方美学桌面日历，基于 Tauri 2 + React + TypeScript。当前是 0.4.3「风物版」，已支持三套布局、五套生图主题、在线天气与内置志莽行书，并提供 Windows x64 Release 安装包。
 
 ## 启动
 
@@ -30,7 +30,7 @@ npm run build
 npm run tauri build -- --no-bundle
 ```
 
-`npm run tauri build -- --no-bundle` 只编译程序。运行 `npm run release` 会收集第三方许可并生成中文 NSIS 安装包，输出位于 `src-tauri/target/release/bundle/nsis`。本次交付副本及校验文件位于 `releases/0.4.2`。发行版采用 Release 优化编译，尚未使用代码签名证书签名。
+`npm run tauri build -- --no-bundle` 只编译程序。运行 `npm run release` 会收集第三方许可并生成中文 NSIS 安装包，输出位于 `src-tauri/target/release/bundle/nsis`。本次交付副本及校验文件位于 `releases/0.4.3`。发行版采用 Release 优化编译，尚未使用代码签名证书签名。
 
 ## 已实现与后续
 
@@ -69,6 +69,10 @@ npm run tauri build -- --no-bundle
 ## 0.4.2 字体分工
 
 仅诗词正文（主界面、全文、收藏与历史诗句）保留行书，其余文字统一使用楷体，保留辅助信息较粗字重。移除时钟、日期的 Georgia 字体及辅助文字的黑体规则，灵签全部采用楷体。修正窄窗口中七字签句的折行，详见 [字体说明](./docs/fonts.md)。
+
+## 0.4.3 单列署名
+
+诗名、朝代和作者合为同一条竖列，继续使用楷体；横版调整字号。超长诗名省略并保留作者，悬停或打开诗词全文可查看完整信息。
 
 
 ## 中华诗词导入

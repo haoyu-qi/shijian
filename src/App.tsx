@@ -227,8 +227,14 @@ export default function App() {
               <span key={line}>{line}</span>
             ))}
           </span>
-          <span className="poem-attribution">
-            《{poem.title}》<br />〔{poem.dynasty}〕{poem.author}
+          <span
+            className="poem-attribution"
+            title={`《${poem.title}》〔${poem.dynasty}〕${poem.author}`}
+          >
+            <span className="poem-title">《{poem.title}》</span>
+            <span className="poem-author">
+              〔{poem.dynasty}〕{poem.author}
+            </span>
           </span>
         </button>
         <span className="poem-seal" aria-hidden="true">

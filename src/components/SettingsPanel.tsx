@@ -135,7 +135,7 @@ export function SettingsPanel({
         离线诗词库 {poems.length.toLocaleString("zh-CN")} 首 · 近期去重
       </p>
       <p className="muted small">离线灵签库 {fortunes.length} 条 · 每日一签</p>
-      <p className="version">诗笺 · 风物版 0.4.2</p>
+      <p className="version">诗笺 · 风物版 0.4.3</p>
     </div>
   );
 }

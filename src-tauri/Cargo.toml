@@ -1,6 +1,6 @@
 [package]
 name = "shijian"
-version = "0.4.2"
+version = "0.4.3"
 description = "诗笺 · 东方美学桌面日历"
 edition = "2021"
 

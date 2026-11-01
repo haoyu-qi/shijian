@@ -37,12 +37,26 @@
   gap: 13px;
 }
 .poem-attribution {
+  display: flex;
+  align-items: center;
+  gap: 3px;
   font-family: var(--font-ui);
   font-size: 11px;
   letter-spacing: 1px;
   line-height: 1.65;
   color: var(--ink);
   opacity: 0.76;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.poem-title {
+  min-height: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.poem-author {
+  flex-shrink: 0;
 }
 .brand-name,
 .solar-term strong,
@@ -133,8 +147,8 @@
     letter-spacing: 0.5px;
   }
   .layout-horizontal .poem-attribution {
-    font-size: 11px;
-    letter-spacing: 1px;
+    font-size: 9px;
+    letter-spacing: 0.2px;
   }
   .layout-horizontal .date-row {
     height: 60px;
